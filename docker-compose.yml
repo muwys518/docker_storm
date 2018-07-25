@@ -1,0 +1,30 @@
+zookeeper:
+  image: muwys/zookeeper:3.4.13
+  ports: 
+    - "2181:2181"
+    - "22"
+nimbus:
+  image: muwys/storm-nimbus:1.2.2
+  ports:
+    - "3773:3773"
+    - "3772:3772"
+    - "6627:6627"
+    - "22"
+  links: 
+    - zookeeper:zk
+supervisor:
+  image: muwys/storm-supervisor:1.2.2
+  ports:
+    - "8000"
+    - "22"
+  links: 
+    - nimbus:nimbus
+    - zookeeper:zk
+ui:
+  image: muwys/storm-ui:1.2.2
+  ports:
+    - "49080:8080"
+    - "22"
+  links: 
+    - nimbus:nimbus
+    - zookeeper:zk
