@@ -1,5 +1,5 @@
 zookeeper:
-  image: muwys/zookeeper:3.4.13
+  image: muwys/zookeeper:3.4.9
   ports: 
     - "2181:2181"
     - "22"
