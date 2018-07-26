@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:trusty
 
 RUN apt-get update; apt-get install -y unzip openjdk-7-jre-headless wget supervisor docker.io openssh-server
 ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64/
